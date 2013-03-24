@@ -1,0 +1,14 @@
+development: &default
+  adapter: mysql2
+  encoding: utf8
+  database: airplane_dev
+  user: root
+  password:
+
+test:
+  <<: *default
+  database: airplane_test
+
+production:
+  <<: *default
+  database: airplane_prod
