@@ -1,0 +1,11 @@
+h1 = t '.header'
+
+.new-plane = link_to t('new'), planes_path, remote: true
+
+table.planes
+  tr
+    th = t '.name'
+    th
+    th
+    th
+  = render @planes
