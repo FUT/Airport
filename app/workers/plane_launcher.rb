@@ -4,7 +4,11 @@ class PlaneLauncher
   def perform(plane_id)
     plane = Plane.find plane_id
 
+    plane.launch
+
     plane.launch! and wait_a_bit until plane.launched?
+
+    plane.launched
   end
 
   def wait_a_bit

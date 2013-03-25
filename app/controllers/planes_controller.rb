@@ -2,8 +2,12 @@ class PlanesController < ApplicationController
   respond_to :html, :json
 
   def index
-    @history = params[:history].present?
-    @planes = @history ? Plane.launched.by_lauch : Plane.not_launched.by_creation
+    @planes = Plane.not_launched.by_creation
+    respond_with @planes
+  end
+
+  def history
+    @planes = Plane.launched.by_lauch
     respond_with @planes
   end
 
@@ -18,7 +22,8 @@ class PlanesController < ApplicationController
   end
 
   def launch
-    params[:planes].each { |id| PlaneLauncher.perform_async id }
+    Plane.where(id: params[:planes]).each(&:be_ready)
+
     redirect_to action: :index
   end
 end

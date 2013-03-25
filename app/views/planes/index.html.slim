@@ -1,10 +1,16 @@
-= simple_form_for :planes, url: launch_planes_path do |f|
-  = render partial: 'buttons', locals: { history: @history, f: f }
+.buttons.row-fluid.show-grid
+  = link_to new_plane_path do
+    .span4  = t('.new')
+  = link_to '#', data: { launch_all: true }  do
+    .span4 = t('.launch_selected')
+  = link_to history_planes_path do
+    .span4 = t('.history')
 
+= simple_form_for :planes, url: launch_planes_path do |f|
   table.table.planes
     tr
       th = t '.selected'
       th = t '.name'
-      th = t '.launched_percentage'
+      th = t '.state'
       th = t '.actions'
     = render @planes

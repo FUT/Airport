@@ -1,5 +1,5 @@
-tr
-  td = check_box_tag 'planes[]', plane.id
+tr data-launching="#{plane.waiting? || plane.launching?}" data-plane-path="#{plane_path plane}"
+  td = check_box_tag 'planes[]', plane.id if plane.on_the_ground?
   td = plane.name
-  td = plane.launched_percentage
-  td = link_to t('.launch'), launch_planes_path(planes: [plane.id]), remote: true, method: :post, data: { launch_plane: true }
+  td data-percentage=true = percentage_text plane
+  td = link_to t('.launch'), launch_planes_path(planes: [plane.id]), remote: true, method: :post, data: { launch_plane: true } if plane.on_the_ground?

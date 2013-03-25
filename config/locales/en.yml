@@ -1,3 +1,8 @@
 en:
-  launch: Launch!
-  planes: Planes
+  planes:
+    plane:
+      on_the_ground: On the ground
+      launching: Launching (%{percentage}%)
+      in_the_air: In the air
+    index:
+      selected: Select

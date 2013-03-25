@@ -1,0 +1,9 @@
+.buttons.row-fluid.show-grid
+  = link_to planes_path do
+    .span12 = t('planes.plane.on_the_ground')
+
+table.table.planes
+  tr
+    th = t '.name'
+    th = t '.state'
+  = render partial: 'history_plane', collection: @planes

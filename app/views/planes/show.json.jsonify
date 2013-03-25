@@ -1,1 +1,2 @@
-json.percentage @plane.launched_percentage
+json.text percentage_text(@plane)
+json.launched @plane.launched?
