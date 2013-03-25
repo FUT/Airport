@@ -18,6 +18,8 @@ gem 'twitter-bootstrap-rails'
 
 gem 'sidekiq'
 
+gem 'squeel'
+
 gem 'faker'
 
 gem 'jsonify-rails'
