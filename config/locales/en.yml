@@ -6,3 +6,8 @@ en:
       in_the_air: In the air
     index:
       selected: Select
+      launch_selected: Launch selected
+      new: Print plane!
+      name: Plane
+      state: Status
+      actions: Lets fly!
