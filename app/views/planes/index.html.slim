@@ -1,5 +1,5 @@
 = simple_form_for :planes, url: launch_planes_path do |f|
-  = render partial: 'buttons', locals: { history: @history }
+  = render partial: 'buttons', locals: { history: @history, f: f }
 
   table.table.planes
     tr
