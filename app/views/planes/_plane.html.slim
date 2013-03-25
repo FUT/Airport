@@ -1,3 +1,4 @@
 tr
   td = plane.name
+  td = plane.launched_percentage
   td = link_to t('.launch'), launch_plane_path(plane, format: :json), remote: true, method: :post

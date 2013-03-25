@@ -4,7 +4,8 @@ class PlanesController < ApplicationController
   before_filter :init_plane, only: [:show, :launch]
 
   def index
-    @planes = Plane.not_launched
+    @history = params[:history].present?
+    @planes = @history ? Plane.launched : Plane.not_launched
     respond_with @planes
   end
 

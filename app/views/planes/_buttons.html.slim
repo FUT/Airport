@@ -1,0 +1,7 @@
+.buttons.row-fluid.show-grid
+  .span6 = link_to t('.new'), planes_path(format: :json), remote: true, method: :post
+  .span6
+    - if history
+      = link_to t('.on_the_ground'), planes_path
+    - else
+      = link_to t('.history'), planes_path(history: true)

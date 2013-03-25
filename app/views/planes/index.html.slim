@@ -1,11 +1,8 @@
-h1 = t '.header'
-
-.new-plane = link_to t('.new'), planes_path(format: :json), remote: true, method: :post
+= render partial: 'buttons', locals: { history: @history }
 
 table.planes
   tr
     th = t '.name'
-    th
-    th
-    th
+    th = t '.launched_percentage'
+    th = t '.actions'
   = render @planes
