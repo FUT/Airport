@@ -3,7 +3,9 @@
     = link_to planes_path do
       .span12 = t('.on_the_ground')
   - else
-    = link_to planes_path(format: :json), remote: true, method: :post do
-      .span6  = t('.new')
+    = link_to new_plane_path do
+      .span4  = t('.new')
+    = link_to '#' do
+      .span4 = t('.launch_selected')
     = link_to planes_path(history: true) do
-      .span6 = t('.history')
+      .span4 = t('.history')

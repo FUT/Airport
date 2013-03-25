@@ -1,7 +1,7 @@
 Airport::Application.routes.draw do
-  resources :planes, only: [:index, :create, :show] do
-    member do
-      post :launch
+  resources :planes, only: [:index, :new, :show] do
+    collection do
+      get :launch
     end
   end
 

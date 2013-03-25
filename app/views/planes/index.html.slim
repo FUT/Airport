@@ -1,8 +1,10 @@
-= render partial: 'buttons', locals: { history: @history }
+= simple_form_for :planes, url: launch_planes_path do |f|
+  = render partial: 'buttons', locals: { history: @history }
 
-table.table.planes
-  tr
-    th = t '.name'
-    th = t '.launched_percentage'
-    th = t '.actions'
-  = render @planes
+  table.table.planes
+    tr
+      th = t '.selected'
+      th = t '.name'
+      th = t '.launched_percentage'
+      th = t '.actions'
+    = render @planes

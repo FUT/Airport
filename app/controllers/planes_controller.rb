@@ -1,7 +1,5 @@
 class PlanesController < ApplicationController
-  respond_to :json, :html
-
-  before_filter :init_plane, only: [:show, :launch]
+  respond_to :html, :json
 
   def index
     @history = params[:history].present?
@@ -9,19 +7,18 @@ class PlanesController < ApplicationController
     respond_with @planes
   end
 
-  def create
+  def new
     @plane = Plane.create name: Faker::Internet.domain_word
+    redirect_to action: :index
   end
 
   def show
+    @plane = Plane.find params[:id]
+    respond_with @plane
   end
 
   def launch
-    PlaneLauncher.perform_async params[:id]
-  end
-
-  private
-  def init_plane
-    @plane = Plane.find params[:id]
+    params[:planes].each { |id| PlaneLauncher.perform_async id }
+    redirect_to action: :index
   end
 end

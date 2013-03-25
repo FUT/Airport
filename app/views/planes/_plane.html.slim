@@ -1,4 +1,5 @@
 tr
+  td = check_box_tag 'planes[]', plane.id
   td = plane.name
   td = plane.launched_percentage
-  td = link_to t('.launch'), launch_plane_path(plane, format: :json), remote: true, method: :post
+  td = link_to t('.launch'), launch_planes_path(planes: [plane.id])
