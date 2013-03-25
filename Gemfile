@@ -16,6 +16,8 @@ gem 'jquery-rails'
 gem 'bootstrap-sass', '>= 2.3.0.0'
 gem 'twitter-bootstrap-rails'
 
+gem 'sidekiq'
+
 gem 'faker'
 
 gem 'jsonify-rails'
