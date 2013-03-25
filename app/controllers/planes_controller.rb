@@ -5,7 +5,7 @@ class PlanesController < ApplicationController
 
   def index
     @history = params[:history].present?
-    @planes = @history ? Plane.launched : Plane.not_launched
+    @planes = @history ? Plane.launched.by_lauch : Plane.not_launched.by_creation
     respond_with @planes
   end
 

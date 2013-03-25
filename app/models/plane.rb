@@ -9,6 +9,9 @@ class Plane < ActiveRecord::Base
   scope :not_launched, -> { where { launched_percentage < 100 } }
   scope :launched, -> { where { launched_percentage == 100 } }
 
+  scope :by_creation, -> { order 'created_at DESC' }
+  scope :by_lauch, -> { order 'updated_at DESC' }
+
   def launch!
     self.launched_percentage += PERCENTAGE_PER_LAUNCH
     save
